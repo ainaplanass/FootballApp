@@ -1,0 +1,20 @@
+/* Import the base styles */
+@import 'tailwindcss/base';
+
+/* Import the component styles */
+@import 'tailwindcss/components';
+
+/* Import the utility styles */
+@import 'tailwindcss/utilities';
+
+/* Your custom CSS can go here */
+
+/* Additional custom styles */
+
+/* Example of additional custom styles */
+/* Add your custom styles below the Tailwind CSS imports */
+.custom-heading {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
