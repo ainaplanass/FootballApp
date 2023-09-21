@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Entrenador extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'nom',
+    ];
+
+    public function equip()
+    {
+        return $this->belongsTo(Equip::class);
+    }
 }
