@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'rol',
+        'equip_id',
     ];
 
     /**
@@ -42,4 +44,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    public function equip()
+    {
+        return $this->belongsTo(Equip::class, 'equip_id');
+    }
 }
