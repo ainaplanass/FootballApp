@@ -10,6 +10,6 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
     public function __invoke(){
-        return "BIENVENIDO A LA PAGINA DE CURSOS";
+        return;
     }
 }
