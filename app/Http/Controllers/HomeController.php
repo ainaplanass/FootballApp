@@ -10,11 +10,11 @@ class HomeController extends Controller
         return view('home');
     }
     public function index(){
-        return "BIENVENIDO AL ÍNDICE DE LA  PAGINA DE CURSOS";
+        return view ('football/index');
     }
-    public function welcome($curso){
+    public function welcome($team){
     
-        return view('cursos.show', ['curso'=>$curso]);
+        return view('football/show', ['team'=>$team]);
 
        
 
