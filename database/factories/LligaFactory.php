@@ -16,7 +16,7 @@ class LligaFactory extends Factory
    public function definition()
    {
        return [
-           'nom' => $this->faker->unique()->word,
+           'nom' => $this->faker->word,
            'temporada' => $this->faker->year,
        ];
    }

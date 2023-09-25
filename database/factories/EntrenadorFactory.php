@@ -18,6 +18,7 @@ class EntrenadorFactory extends Factory
     {
         return [
             'nom' => $this->faker->name,
+            'equip_id' => \App\Models\Equip::factory(),
         ];
     }
 }

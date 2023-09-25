@@ -17,9 +17,8 @@ class EquipFactory extends Factory
     public function definition()
     {
         return [
-            'nom' => $this->faker->unique()->word,
-            'clubs_esportius_id' => function () {
-                return \App\Models\ClubsEsportiu::factory()->create()->id;}
+            'nom' => $this->faker->word,
+            'clubs_esportius_id' => \App\Models\ClubsEsportiu::factory(),
         ];
     }
 }

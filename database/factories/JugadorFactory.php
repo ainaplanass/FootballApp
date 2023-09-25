@@ -19,10 +19,9 @@ class JugadorFactory extends Factory
         return [
             'nom' => $this->faker->name,
             'edat' => $this->faker->numberBetween(18, 35),
-            'num' => $this->faker->unique()->numberBetween(1, 99),
-            'posició' => $this->faker->randomElement(['Delantero', 'Centrocampista', 'Defensor', 'Portero']),
-            'equip_id' => function () {
-                return \App\Models\Jugador::factory()->create()->id;}
+            'num' => $this->faker->numberBetween(1, 99),
+            'posició' => $this->faker->randomElement(['Davanter', 'Centrecampista', 'Defensa', 'Porter']),
+            'equip_id' =>  \App\Models\Equip::factory(),
         ];
     }
 }

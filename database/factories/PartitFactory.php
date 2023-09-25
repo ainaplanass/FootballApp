@@ -16,19 +16,13 @@ class PartitFactory extends Factory
    public function definition()
    {
     return [
-        'resultat' => $this->faker->randomElement(['Victoria', 'Empate', 'Derrota']),
+        'resultat' => $this->faker->randomElement(['Victoria', 'Empat', 'Derrota']),
         'data' => $this->faker->date(),
         'temps' => $this->faker->time(),
         'estadi' => $this->faker->word,
-        'equipLocal_id' => function () {
-            return \App\Models\Equip::factory()->create()->id;
-        },
-        'equipVisitant_id' => function () {
-            return \App\Models\Equip::factory()->create()->id;
-        },
-        'lliga_id' => function () {
-            return \App\Models\Lliga::factory()->create()->id;
-        },
+        'equipLocal_id' => \App\Models\Equip::factory(),
+        'equipVisitant_id'=> \App\Models\Equip::factory(),
+        'lliga_id' => \App\Models\Lliga::factory(),
     ];
     
     

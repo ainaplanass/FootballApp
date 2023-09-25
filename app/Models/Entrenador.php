@@ -11,6 +11,7 @@ class Entrenador extends Model
 
     protected $fillable = [
         'nom',
+        'equip_id',
     ];
 
     public function equip()

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\ClubsEsportiu>
  */
-class ClubsEsportiusFactory extends Factory
+class ClubsEsportiuFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +17,7 @@ class ClubsEsportiusFactory extends Factory
     public function definition()
     {
         return [
-            'nom' => $this->faker->unique()->word, // Genera un nombre único
+            'nom' => $this->faker->word,
         ];
     }
 }
