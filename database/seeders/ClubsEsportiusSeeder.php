@@ -1,24 +1,19 @@
 <?php
 
-namespace Database\Seeders;
+// namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
-use App\Models\ClubsEsportiu;
-class ClubsEsportiusSeeder extends Seeder
-{
-    public function run(): void
-    {
-        ClubsEsportiu::create([
-            'nom' => 'Escola Barcelona',
-        ]);
-
-        ClubsEsportiu::create([
-            'nom' => 'Escola Real Madrid',
-        ]);
-
-        ClubsEsportiu::create([
-            'nom' => 'Escola Atlético Madrid',
-        ]);
-    }
-}
+// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+// use Illuminate\Database\Seeder;
+// use App\Models\ClubsEsportiu;
+// class ClubsEsportiusSeeder extends Seeder
+// {
+    // /**
+    //  * Run the database seeds.
+    //  *
+    //  * @return void
+    //  */
+    // public function run()
+    // {
+    //     ClubsEsportiu::factory()->count(10)->create(); 
+    // }
+// }
