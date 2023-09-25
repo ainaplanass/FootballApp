@@ -16,7 +16,6 @@ class HomeController extends Controller
     
         return view('football/show', ['team'=>$team]);
 
-       
 
     }
 }
