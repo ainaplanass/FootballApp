@@ -9,5 +9,5 @@ Route::get('/', [HomeController::class, '__invoke'])->name('home');
 
 Route::prefix('lfebs')->group(function () {
     Route::get('', [HomeController::class, 'index'])->name('index');
-    Route::get('/{team}', [HomeController::class, 'welcome'])->name('welcome');
+    Route::get('{equip}', [HomeController::class, 'show'])->name('show');
 });
