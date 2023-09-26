@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-
+use Illuminate\Database\Eloquent\Casts\Attribute;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -21,7 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'rol',
+        'role',
         'equip_id',
     ];
 
@@ -47,5 +47,15 @@ class User extends Authenticatable
     public function equip()
     {
         return $this->belongsTo(Equip::class, 'equip_id');
+    }
+    
+    protected function name():Attribute
+    {
+        return new Attribute(
+            get: fn($value) => ucwords($value),
+          
+            set: fn($value) =>strtolower($value)
+            
+        );
     }
 }

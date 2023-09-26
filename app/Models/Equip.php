@@ -13,9 +13,9 @@ class Equip extends Model
         'nom',
     ];
 
-    public function jugador()
+    public function jugadors()
     {
-        return $this->hasMany(Jugador::class);
+        return $this->hasMany(Jugador::class, 'equip_id');
     }
     public function users()
     {
@@ -25,8 +25,12 @@ class Equip extends Model
     {
         return $this->hasMany(Entrenador::class);
     }
-    public function clubEsportiu()
+    public function clubsEsportiu()
     {
-        return $this->belongsTo(ClubEsportiu::class, 'clubs_esportius_id');
+        return $this->belongsTo(ClubsEsportiu::class, 'clubs_esportius_id');
+    }
+    public function partits()
+    {
+        return $this->hasMany(Partit::class);
     }
 }
