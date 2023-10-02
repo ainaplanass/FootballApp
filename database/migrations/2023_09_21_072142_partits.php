@@ -12,9 +12,9 @@ return new class extends Migration
         Schema::create('partits', function(Blueprint $table)
         {
             $table->id();
-            $table->string('resultat',30);
+            $table->string('resultat',30)->nullable(); ;
             $table->date('data');
-            $table->time('temps');
+            $table->time('temps')->nullable(); ;
             $table->string('estadi',30);
             $table->unsignedBigInteger('equipLocal_id');
             $table->foreign('equipLocal_id')->references('id')->on('equips')->onDelete('cascade');

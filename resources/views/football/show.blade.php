@@ -9,6 +9,7 @@
 <table>
     <thead>
         <tr>
+            <th>id</th>
             <th>Nom</th>
             <th>Edat</th>
             <th>Número</th>
@@ -18,10 +19,11 @@
     <tbody>
         @foreach ($equip->jugadors as $jugador)
         <tr>
+            <td>{{ $jugador->id }}</td>
             <td>{{ $jugador->nom }}</td>
             <td>{{ $jugador->edat }}</td>
             <td>{{ $jugador->num }}</td>
-            <td>{{ $jugador->posició }}</td>
+            <td>{{ $jugador->posicio }}</td>
         </tr>
         @endforeach
     </tbody>
@@ -38,27 +40,35 @@
 <table>
     <thead>
         <tr>
-            <th>Resulta</th>
-            <th>Fecha</th>
-            <th>Estadio</th>
+            <th>Data</th>
+            <th>Estadi</th>
             <th>Local</th>
-            <th>Visitante</th>
-            <th>Liga</th>
+            <th>Visitant</th>
+            <th>LLiga</th>
             <th>Temporada</th>
+            <th>Resultat</th>
+            <th>Temps</th>
         </tr>
     </thead>
     <tbody>
         @foreach ($partits as $partit)
         <tr>
-            <td>{{ $partit->resultat }}</td>
             <td>{{ $partit->data }}</td>
             <td>{{ $partit->estadi }}</td>
             <td>{{ $partit->equipLocal->nom }}</td>
             <td>{{ $partit->equipVisitant->nom }}</td>
             <td>{{ $partit->lliga->nom }}</td>
             <td>{{ $partit->lliga->temporada }}</td>
+            <td>{{ $partit->resultat }}</td>
+            <td>{{ $partit->temps }}</td>
         </tr>
         @endforeach
     </tbody>
 </table>
+<a href="{{ route('team', ['id' => $equip->id]) }}" class="btn btn-primary">Gestionar Equip</a>
+<br>
+<a href="{{ route('matches', ['id' => $equip->id]) }}" class="btn btn-primary">Gestionar partits</a>
+<br>
+<a href="{{ route('index') }}" class="btn btn-primary">Tornar a la llista d'equips</a>
+
 

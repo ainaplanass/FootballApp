@@ -29,8 +29,5 @@ class Equip extends Model
     {
         return $this->belongsTo(ClubsEsportiu::class, 'clubs_esportius_id');
     }
-    public function partits()
-    {
-        return $this->hasMany(Partit::class);
-    }
+ 
 }

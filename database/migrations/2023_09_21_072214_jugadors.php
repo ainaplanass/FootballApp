@@ -14,7 +14,7 @@ return new class extends Migration
             $table->string('nom',30);
             $table->integer('edat');
             $table->integer('num');
-            $table->string('posició',30);
+            $table->string('posicio',30);
             $table->unsignedBigInteger('equip_id');
             $table->foreign('equip_id')->references('id')->on('equips')->onDelete('cascade');
             $table->timestamps();
