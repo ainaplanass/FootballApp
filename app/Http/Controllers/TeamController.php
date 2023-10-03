@@ -43,7 +43,7 @@ class TeamController extends Controller
             $query->where('equipLocal_id', $equip->id)
                   ->orWhere('equipVisitant_id', $equip->id);
         })->get();
-        return view('football.show', compact('equip','partits'));
+        return view('football.show_team', compact('equip','partits'));
     }
     public function team($id)
     {
@@ -74,7 +74,7 @@ class TeamController extends Controller
 
         $jugador->save();
 
-        return redirect()->route('showTeam', ['id' => $equip->id])
+        return redirect()->route('teams.show', ['id' => $equip->id])
         ->with('success', 'Jugador creat correctament');
     }
     public function destroyTeam(Request $request)
@@ -87,7 +87,7 @@ class TeamController extends Controller
             return redirect()->route('index')
             ->with('success', 'Equip eliminat correctament');
         }
-        
+     
     }
     
     public function updatePlayer(Request $request, Jugador $jugador)
@@ -105,7 +105,7 @@ class TeamController extends Controller
         $jugador->posicio = $request->posicio;
         $jugador->save();
 
-        return redirect()->route('showTeam', ['id' => $jugador->equip_id])
+        return redirect()->route('teams.show', ['id' => $jugador->equip_id])
             ->with('success', 'Jugador actuaitzat correctament');
     }
     public function destroyPlayer($id)
@@ -113,7 +113,7 @@ class TeamController extends Controller
         $jugador = Jugador::findOrFail($id);
         $jugador->delete();
     
-        return redirect()->route('showTeam', ['id' => $jugador->equip_id])
+        return redirect()->route('teams.show', ['id' => $jugador->equip_id])
             ->with('success', 'Jugador eliminat correctament');
     }
     public function storeTrainer(Request $request, $id)
@@ -125,7 +125,7 @@ class TeamController extends Controller
 
         $entrenador->save();
 
-        return redirect()->route('showTeam', ['id' => $equip->id])
+        return redirect()->route('teams.show', ['id' => $equip->id])
         ->with('success', 'Jugador creat correctament');
     }
     public function destroyTrainer($id)
@@ -133,7 +133,7 @@ class TeamController extends Controller
         $entrenador = Entrenador::findOrFail($id);
         $entrenador->delete();
     
-        return redirect()->route('showTeam', ['id' => $entrenador->equip_id])
+        return redirect()->route('teams.show', ['id' => $entrenador->equip_id])
             ->with('success', 'Jugador eliminat correctament');
     }
  

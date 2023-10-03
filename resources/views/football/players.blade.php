@@ -62,7 +62,7 @@
                         <input type="text" name="nom" value="{{ $entrenador->nom }}" class="form-control">
                     </td>
                     <td>
-                        <form method="POST" action="{{ route('trainer.destroy', ['id' => $entrenador->id]) }}">
+                        <form method="POST" action="{{ route('trainers.destroy', ['id' => $entrenador->id]) }}">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Eliminar</button>
@@ -84,12 +84,12 @@
     </form>
 
     <h2>Afegeix un Entrenador</h2>
-    <form method="POST" action="{{ route('trainer.store',['id' => $equip->id])}}">
+    <form method="POST" action="{{ route('trainers.store',['id' => $equip->id])}}">
         @csrf
         <input type="text" name="nom" placeholder="Nom">
         <button type="submit">Afegir</button>
     </form>
 
-    <a href="{{ route('show', ['id' => $equip->id]) }}" class="btn btn-primary">Tornar a la gestió d'equip</a>
+    <a href="{{ route('teams.show', ['id' => $equip->id]) }}" class="btn btn-primary">Tornar a la gestió d'equip</a>
 
 @endsection

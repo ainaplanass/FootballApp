@@ -2,7 +2,7 @@
 @section('title', 'Crear equip')
 @section('content')
 <h1> Crea un equip </h1>
-<form method="POST" action="{{ route('team.store') }}">
+<form method="POST" action="{{ route('teams.store') }}">
     @csrf
 
     <div class="form-group">
@@ -22,7 +22,7 @@
     <button type="submit" class="btn btn-primary">Crear Equipo</button>
 </form>
 
-    <form method="POST" action="{{ route('team.destroy') }}">
+    <form method="POST" action="{{ route('teams.destroy') }}">
         @csrf
         @method('DELETE')
     

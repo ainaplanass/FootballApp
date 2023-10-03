@@ -3,6 +3,7 @@
 @section('content')
 <div class="bg-blue-500 text-white p-4">
     Benvingut a l'aplicació de la Lliga de Fútbol Escolar de Barcelona Sants
-    <a href="{{ route('index')}}" >'  Equips'
+    <a href="{{ route('index')}}" >Equips
+    <a href="{{ route('matches')}}" >Partits
 </div>
 @endsection

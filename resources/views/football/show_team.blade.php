@@ -67,7 +67,7 @@
 </table>
 <a href="{{ route('team', ['id' => $equip->id]) }}" class="btn btn-primary">Gestionar Equip</a>
 <br>
-<a href="{{ route('matches', ['id' => $equip->id]) }}" class="btn btn-primary">Gestionar partits</a>
+<a href="{{ route('matches.edit', ['id' => $equip->id]) }}" class="btn btn-primary">Gestionar partits</a>
 <br>
 <a href="{{ route('index') }}" class="btn btn-primary">Tornar a la llista d'equips</a>
 

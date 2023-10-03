@@ -8,19 +8,27 @@ use App\Http\Controllers\MatchController;
 Route::get('/', [HomeController::class, '__invoke'])->name('home');
 
 Route::prefix('lfebs')->group(function () {
+
     Route::get('', [TeamController::class, 'index'])->name('index');
-    Route::post('teams/createteam', [TeamController::class, 'storeTeam'])->name('team.store');
-    Route::delete('teams/deleteteam', [TeamController::class, 'destroyTeam'])->name('team.destroy');
+
     Route::get('teams', [TeamController::class, 'teams'])->name('teams');
-    Route::get('{id}', [TeamController::class, 'showTeam'])->name('showTeam');
     Route::get('{id}/editteam', [TeamController::class, 'team'])->name('team');
-    Route::put('player/{jugador}/editteam', [TeamController::class, 'updatePlayer'])->name('players.update');
-    Route::post('player/{id}/editteam', [TeamController::class, 'storePlayer'])->name('players.store');
-    Route::delete('player/{id}/editteam', [TeamController::class, 'destroyPlayer'])->name('players.destroy');
-    Route::post('trainer/{id}/editteam', [TeamController::class, 'storeTrainer'])->name('trainer.store');
-    Route::delete('trainer/{id}/editteam', [TeamController::class, 'destroyTrainer'])->name('trainer.destroy');
-    Route::get('{id}/editmatches', [MatchController::class, 'matches'])->name('matches');
-    Route::post('{id}/editmatches', [MatchController::class, 'store'])->name('matches.store');
-    Route::put('{id}/editmatches', [MatchController::class, 'update'])->name('matches.update');
+    Route::post('teams/createteam', [TeamController::class, 'storeTeam'])->name('teams.store');
+    Route::delete('teams/deleteteam', [TeamController::class, 'destroyTeam'])->name('teams.destroy');
+    Route::get('teams/{id}', [TeamController::class, 'showTeam'])->name('teams.show');
+    Route::get('teams/{id}/editteam', [TeamController::class, 'editTeam'])->name('teams.edit');
+    
+    Route::put('players/{jugador}/editteam', [TeamController::class, 'updatePlayer'])->name('players.update');
+    Route::post('players/{id}/editteam', [TeamController::class, 'storePlayer'])->name('players.store');
+    Route::delete('players/{id}/editteam', [TeamController::class, 'destroyPlayer'])->name('players.destroy');
+    
+    Route::post('trainers/{id}/editteam', [TeamController::class, 'storeTrainer'])->name('trainers.store');
+    Route::delete('trainers/{id}/editteam', [TeamController::class, 'destroyTrainer'])->name('trainers.destroy');
+    
+    Route::get('matches', [MatchController::class, 'matches'])->name('matches');
+    Route::get('matches/{id}/editmatches', [MatchController::class, 'teamMatches'])->name('matches.edit');
+    Route::post('matches/{id}/editmatches', [MatchController::class, 'storeMatch'])->name('matches.store');
+    Route::put('matches/{id}/editmatches', [MatchController::class, 'updateMatch'])->name('matches.update');
 });
+
 

@@ -23,7 +23,7 @@
 <ul>
     @foreach($equips as $equip)
     <li>
-        <a href="{{ route('showTeam', ['id' => $equip->id]) }}">
+        <a href="{{ route('teams.show', ['id' => $equip->id]) }}">
             {{ $equip->nom }}
         </a>
     </li>

@@ -9,7 +9,12 @@ use App\Models\Lliga;
 
 class MatchController extends Controller
 {
-    public function matches($id)
+    public function matches()
+    {
+        $partits = Partit::all();
+        return view('football.show_match', compact('partits'));
+    }
+    public function teamMatches($id)
     {
          $equip = Equip::find($id);
          $partits = Partit::where(function ($query) use ($id) {
@@ -22,7 +27,7 @@ class MatchController extends Controller
          return view('football.matches', compact('partits','equip', 'equipsDispo','lliguesDispo')); 
     }
 
-    public function store(Request $request, $id)
+    public function storeMatch(Request $request, $id)
     {
        $partit = new Partit();
 
@@ -41,10 +46,10 @@ class MatchController extends Controller
             
         $partit -> save();
        
-        return redirect()->route('show', ['id' => $id])
+        return redirect()->route('teams.show', ['id' => $id])
         ->with('success', 'Partit creat correctament');
    }
-    public function update(Request $request,$id)
+    public function updateMatch(Request $request,$id)
     {
         $partit = Partit::find($id);
         
@@ -69,7 +74,7 @@ class MatchController extends Controller
             }
 
         $partit -> save();
-        return redirect()->route('show', ['id' => $partit->equipLocal_id])
+        return redirect()->route('teams.show', ['id' => $partit->equipLocal_id])
         ->with('success', 'Partit creat correctament');
 
    }
