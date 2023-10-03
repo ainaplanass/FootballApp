@@ -11,6 +11,7 @@ use App\Models\ClubsEsportiu;
 
 class TeamController extends Controller
 {
+
     public function index(Request $request){
 
         $clubs = ClubsEsportiu::all();

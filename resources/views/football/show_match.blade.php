@@ -26,6 +26,6 @@
             @endforeach
         </tbody>
     </table>
-<a href="{{ route('home') }}" class="btn btn-primary">Tornar al menú principal</a>
+<a href="{{ route('menu') }}" class="btn btn-primary">Tornar al menú principal</a>
 
 @endsection

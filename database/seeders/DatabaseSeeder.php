@@ -21,19 +21,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call(RolesSeeder::class);
+        
         ClubsEsportiu::factory(5)->create();
-
+        
         Lliga::factory(3)->create();
-
+        
         Equip::factory(10)->create();
-
+        
         Entrenador::factory(10)->create();
-
-        User::factory(80)->create();
-
+        
         Jugador::factory(50)->create();
-
+        
         Partit::factory(10)->create();
+        
+        $this->call(UsersSeeder::class);
     }
 }
 

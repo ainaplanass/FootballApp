@@ -9,6 +9,8 @@ use App\Models\Lliga;
 
 class MatchController extends Controller
 {
+    
+
     public function matches()
     {
         $partits = Partit::all();

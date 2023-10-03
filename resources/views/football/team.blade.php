@@ -11,7 +11,7 @@
     </div>
 
     <div class="form-group">
-        <label for="clubs_esportius_id">Club Deportiu:</label>
+        <label for="clubs_esportius_id">Club Esportiu:</label>
         <select name="clubs_esportius_id" id="clubs_esportius_id" class="form-control" required>
             <option value="" disabled selected>Selecciona un club esportiu</option>
             @foreach ($clubs as $club)
@@ -19,7 +19,7 @@
             @endforeach
         </select>
     </div>
-    <button type="submit" class="btn btn-primary">Crear Equipo</button>
+    <button type="submit" class="btn btn-primary">Crear Equip</button>
 </form>
 
     <form method="POST" action="{{ route('teams.destroy') }}">

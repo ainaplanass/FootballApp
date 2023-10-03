@@ -2,10 +2,12 @@
 @section('title', 'Equips')
 @section('content')
 <h1>Equips actuals de la lliga</h1>
-
+@auth
 <div>
     <a href="{{ route('teams') }}" class="btn btn-primary">Gestionar equips</a>
 </div>
+@endauth
+<a href="{{ route('home') }}" class="btn btn-primary">Tornar al menú</a>
 
 <form method="GET" action="{{ route('index') }}">
     <div class="form-group">

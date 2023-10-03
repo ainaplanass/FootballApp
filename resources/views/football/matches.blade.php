@@ -95,9 +95,10 @@
                     <option value="{{ $lliga->id }}">{{ $lliga->nom }}</option>
                 @endforeach
             </select>
-        </div>
-            
+        </div>      
+        @auth     
         <button type="submit" class="btn btn-primary">Crear Partit</button>
+        @endauth
     </form>
 </div>
 <a href="{{ route('teams.show', ['id' => $equip->id]) }}" class="btn btn-primary">Tornar a la gestió d'equip</a>
