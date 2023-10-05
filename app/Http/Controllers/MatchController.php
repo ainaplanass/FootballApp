@@ -9,8 +9,7 @@ use App\Models\Lliga;
 
 class MatchController extends Controller
 {
-    
-
+  
     public function matches()
     {
         $partits = Partit::all();
@@ -31,6 +30,7 @@ class MatchController extends Controller
 
     public function storeMatch(Request $request, $id)
     {
+       
        $partit = new Partit();
 
             $partit->data = $request->data;
@@ -50,6 +50,7 @@ class MatchController extends Controller
        
         return redirect()->route('teams.show', ['id' => $id])
         ->with('success', 'Partit creat correctament');
+ 
    }
     public function updateMatch(Request $request,$id)
     {

@@ -1,14 +1,22 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <script src="https://cdn.tailwindcss.com"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield ('title')</title>
-    <!-- Agrega aquí tus etiquetas meta, enlaces a hojas de estilo CSS y scripts JS si es necesario -->
-    <link rel="stylesheet" href="estilos.css">
+    <title>@yield('title')</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body >
-    @yield('content')
+<body class="bg-gray-100 font-sans">
+
+    <nav class="bg-green-500 p-4 text-white">
+        <div class="container mx-auto">
+            <h1 class="text-2xl font-semibold">Lliga de Fútbol Escolar Barcelona Sants</h1>
+        </div>
+    </nav>
+
+    <div class="container mx-auto p-4">
+        @yield('content')
+    </div>
+
 </body>
 </html>

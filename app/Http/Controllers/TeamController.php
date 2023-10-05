@@ -8,11 +8,15 @@ use App\Models\Partit;
 use App\Models\Entrenador;
 use App\Models\Jugador;
 use App\Models\ClubsEsportiu;
-
+use Illuminate\Support\Facades\Auth;
 class TeamController extends Controller
 {
+    public function currentUser()
+    {
+        return auth()->user();
+    }
 
-    public function index(Request $request){
+    public function teamsList(Request $request){
 
         $clubs = ClubsEsportiu::all();
 
@@ -55,14 +59,32 @@ class TeamController extends Controller
     }
     public function storeTeam(Request $request)
     {
-        $equip = new Equip();
-        $equip->nom = $request->nom;
-        $equip->clubs_esportius_id = $request->clubs_esportius_id;
-        $equip->save();
-     
-        return redirect()->route('index')
-            ->with('success', 'Equip creat exitosament.');     
+        $currentUser = $this->currentUser();
+
+            $equip = new Equip();
+            $equip->nom = $request->nom;
+            $equip->clubs_esportius_id = $request->clubs_esportius_id;
+            $equip->save();
+         
+            return redirect()->route('teams.list')
+                ->with('success', 'Equip creat exitosament.');     
+
     }
+
+    public function destroyTeam(Request $request)
+    {
+        $currentUser = $this->currentUser();
+            $selectedTeamId = $request->input('selectedTeamId');
+            
+            if ($selectedTeamId) {
+                $equip = Equip::find($selectedTeamId);
+                $equip->delete();
+                return redirect()->route('teams.list')
+                ->with('success', 'Equip eliminat correctament');
+            }
+     
+    }
+    
     public function storePlayer(Request $request, $id)
     {
         $equip = Equip::find($id);
@@ -78,19 +100,7 @@ class TeamController extends Controller
         return redirect()->route('teams.show', ['id' => $equip->id])
         ->with('success', 'Jugador creat correctament');
     }
-    public function destroyTeam(Request $request)
-    {
-        $selectedTeamId = $request->input('selectedTeamId');
-
-        if ($selectedTeamId) {
-            $equip = Equip::find($selectedTeamId);
-            $equip->delete();
-            return redirect()->route('index')
-            ->with('success', 'Equip eliminat correctament');
-        }
-     
-    }
-    
+   
     public function updatePlayer(Request $request, Jugador $jugador)
     {
         $request->validate([

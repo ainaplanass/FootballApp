@@ -71,6 +71,6 @@
 <a href="{{ route('matches.update', ['id' => $equip->id]) }}" class="btn btn-primary">Gestionar partits</a>
 <br>
 @endauth
-<a href="{{ route('index') }}" class="btn btn-primary">Tornar a la llista d'equips</a>
+<a href="{{ route('teams.list') }}" class="btn btn-primary">Tornar a la llista d'equips</a>
 
 

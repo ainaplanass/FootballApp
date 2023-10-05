@@ -9,7 +9,7 @@
 @endauth
 <a href="{{ route('home') }}" class="btn btn-primary">Tornar al menú</a>
 
-<form method="GET" action="{{ route('index') }}">
+<form method="GET" action="{{ route('teams.list') }}">
     <div class="form-group">
         <label for="club_esportiu">Filtrar per Club:</label>
         <select name="club_esportiu" id="club_esportiu" class="form-control">

@@ -3,22 +3,22 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-
+use Illuminate\Support\Facades\Gate;
+use App\Policies\AdminPolicy;
 class AppServiceProvider extends ServiceProvider
-{
-    /**
-     * Register any application services.
-     */
+{protected $policies = [
+    // Otras políticas aquí
+    User::class => AdminPolicy::class,
+];
+  
     public function register(): void
     {
         //
     }
 
-    /**
-     * Bootstrap any application services.
-     */
+
     public function boot(): void
     {
-        //
+      
     }
 }

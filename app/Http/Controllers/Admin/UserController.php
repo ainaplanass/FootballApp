@@ -17,33 +17,21 @@ class UserController extends Controller
 
     public function assignRoles(Request $request, $userId)
     {
-        if (auth()->check()) {
-            $currentUser = auth()->user();
+            //  $currentUser = auth()->user();
     
-            if ($currentUser->hasRole('admin')) {
+            // if ($currentUser->isAdmin()) {
                 $user = User::findOrFail($userId);
                 $user->syncRoles($request->input('roles'));
     
-                return redirect()->route('users')->with('success', 'Rol assignat correctament.');
-            }
-        }
+                return redirect()->route('users.list')->with('success', 'Rol assignat correctament.');
+            // }
+   
         
-        return redirect()->route('users')->with('success', 'No pots assignar rols....');
-    }
-
-    public function create()
-    {
-        
-    }
-
-
-    public function store(Request $request)
-    {
-        
+        // return redirect()->route('users.list');
     }
 
   
-    public function show(string $id)
+    public function create()
     {
         
     }
