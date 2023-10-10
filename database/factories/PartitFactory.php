@@ -17,7 +17,7 @@ class PartitFactory extends Factory
    {
     return [
         'resultat' => $this->faker->randomElement(['Victoria', 'Empat', 'Derrota']),
-        'data' => $this->faker->date(),
+        'data' => $this->faker->datetime(),
         'temps' => $this->faker->time(),
         'estadi' => $this->faker->word,
         'equipLocal_id' => \App\Models\Equip::factory(),

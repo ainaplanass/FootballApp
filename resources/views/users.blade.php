@@ -1,9 +1,8 @@
 @extends('layouts.plantilla')
-@section('title', 'Users')
+@section('title', 'Usuaris')
 @section('content')
-    <h1>Lista d'usuaris</h1>
-    <a href="{{ route('menu') }}" class="btn btn-primary">Tornar al menú principal</a>
-  
+<div class="container mx-auto p-4">         
+        <h1 class = "title">Llista d'usuaris</h1>
         <table>
             <thead>
                 <tr>
@@ -29,7 +28,7 @@
                                         {{ $role->name }}
                                     </label>
                                 @endforeach
-                                <button type="submit">Guardar</button>
+                                <button type="submit" class ="btn btn-primary">Guardar</button>
                             </form>
                             @endauth
                         </td>
@@ -37,4 +36,7 @@
                 @endforeach
             </tbody>
         </table>
+    <div class="mt-8 text-right"> 
+        <a href="{{ route('menu') }}" class="btn btn-primary">Tornar al menú principal</a>
+    <div> 
         @endsection

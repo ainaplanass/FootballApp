@@ -6,9 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+
     public function up(): void
     {
         Schema::create('equips', function(Blueprint $table)
@@ -16,7 +14,7 @@ return new class extends Migration
             $table->id();
             $table->string('nom',30);
             $table->unsignedBigInteger('clubs_esportius_id');
-            $table->foreign('clubs_esportius_id')->references('id')->on('clubs_esportius')->onDelete('cascade');
+            $table->foreign('clubs_esportius_id')->references('id')->on('clubs_esportius');
             $table->timestamps();
 
         });

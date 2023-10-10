@@ -13,15 +13,12 @@
                User::create([
                    'name' => 'Aina Planas',
                    'email' => 'ainetap@example.com',
-                   'password' => bcrypt('ainaainaaina'),
-                   'equip_id' => 1, 
+                   'password' => 'ainaainaaina',
                ])->assignRole('admin');
                User::create([
                    'name' => 'Aina Coach',
                    'email' => 'ainetac@example.com',
-                   'password' => bcrypt('ainaainaaina'),
-                   'equip_id' => 2, 
+                   'password' => 'ainaainaaina',
                ])->assignRole('entrenador');
-               User::factory(80)->create();
        }
    }

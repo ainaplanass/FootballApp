@@ -52,7 +52,11 @@ class MatchController extends Controller
         ->with('success', 'Partit creat correctament');
  
    }
-    public function updateMatch(Request $request,$id)
+    public function editMatch(Partit $partit)
+    {
+        return view ('football.editgame', compact('partit'));
+    }
+    public function updateMatch(Request $request, $id)
     {
         $partit = Partit::find($id);
         
@@ -60,6 +64,7 @@ class MatchController extends Controller
             'data' => 'required',
             'estadi' => 'required',
             'equipVisitant_id' => 'required',
+            'equipLocal_id' => 'required',
             'lliga_id' => 'required',
             'resultat' => 'required',
             'temps' => 'required',
@@ -67,6 +72,7 @@ class MatchController extends Controller
             $partit->data = $request->data;
             $partit->estadi = $request->estadi;
             $partit->equipVisitant_id = $request->equipVisitant_id;
+            $partit->equipLocal_id = $request->equipLocal_id;
             $partit->lliga_id = $request->lliga_id;
 
             if ($request->has('resultat')) {
@@ -77,10 +83,17 @@ class MatchController extends Controller
             }
 
         $partit -> save();
-        return redirect()->route('teams.show', ['id' => $partit->equipLocal_id])
-        ->with('success', 'Partit creat correctament');
+        return redirect()->back()
+           ->with('success', 'Partit actualitzat correctament');
 
    }
-
+   public function destroyMatch($id)
+   {
+       $match = Partit::findOrFail($id);
+       $match->delete();
+   
+       return redirect()->back()
+           ->with('success', 'Partit eliminat correctament');
+   }
 }
 

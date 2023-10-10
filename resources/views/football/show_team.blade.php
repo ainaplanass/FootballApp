@@ -2,32 +2,32 @@
 @section('title', 'Equip '. $equip->nom)
 @section('content')
 
-<h1> {{ $equip->nom }}</h1>
-<h2>Club Esportiu: {{ $equip->clubsEsportiu->nom }}</h2>
-
-<h2>Jugadorss:</h2>
-<table>
-    <thead>
-        <tr>
-            <th>id</th>
-            <th>Nom</th>
-            <th>Edat</th>
-            <th>Número</th>
-            <th>Posició</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach ($equip->jugadors as $jugador)
-        <tr>
-            <td>{{ $jugador->id }}</td>
-            <td>{{ $jugador->nom }}</td>
-            <td>{{ $jugador->edat }}</td>
-            <td>{{ $jugador->num }}</td>
-            <td>{{ $jugador->posicio }}</td>
-        </tr>
-        @endforeach
-    </tbody>
-</table>
+<div class="container-lg">
+    <h1 class="title">{{ $equip->nom }}</h1>
+    <h2 class = "subtitle">Club Esportiu: {{ $equip->clubsEsportiu->nom }}</h2>   
+    <h2>Jugadors:</h2>
+    <table class="table-auto w-full">
+        <thead>
+            <tr>
+                <th class="px-4 py-2">ID</th>
+                <th class="px-4 py-2">Nom</th>
+                <th class="px-4 py-2">Edat</th>
+                <th class="px-4 py-2">Número</th>
+                <th class="px-4 py-2">Posició</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($equip->jugadors as $jugador)
+            <tr>
+                <td class="px-4 py-2">{{ $jugador->id }}</td>
+                <td class="px-4 py-2">{{ $jugador->nom }}</td>
+                <td class="px-4 py-2">{{ $jugador->edat }}</td>
+                <td class="px-4 py-2">{{ $jugador->num }}</td>
+                <td class="px-4 py-2">{{ $jugador->posicio }}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
 
     <h2>Entrenador/s:</h2>
     <ul>
@@ -37,40 +37,45 @@
     </ul>
 
     <h2>Partits:</h2>
-<table>
-    <thead>
-        <tr>
-            <th>Data</th>
-            <th>Estadi</th>
-            <th>Local</th>
-            <th>Visitant</th>
-            <th>LLiga</th>
-            <th>Temporada</th>
-            <th>Resultat</th>
-            <th>Temps</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach ($partits as $partit)
-        <tr>
-            <td>{{ $partit->data }}</td>
-            <td>{{ $partit->estadi }}</td>
-            <td>{{ $partit->equipLocal->nom }}</td>
-            <td>{{ $partit->equipVisitant->nom }}</td>
-            <td>{{ $partit->lliga->nom }}</td>
-            <td>{{ $partit->lliga->temporada }}</td>
-            <td>{{ $partit->resultat }}</td>
-            <td>{{ $partit->temps }}</td>
-        </tr>
-        @endforeach
-    </tbody>
-</table>
-@auth
-<a href="{{ route('team', ['id' => $equip->id]) }}" class="btn btn-primary">Gestionar Equip</a>
-<br>
-<a href="{{ route('matches.update', ['id' => $equip->id]) }}" class="btn btn-primary">Gestionar partits</a>
-<br>
-@endauth
-<a href="{{ route('teams.list') }}" class="btn btn-primary">Tornar a la llista d'equips</a>
+    <table class="table-auto w-full">
+        <thead>
+            <tr>
+                <th class="px-4 py-2">Data</th>
+                <th class="px-4 py-2">Estadi</th>
+                <th class="px-4 py-2">Local</th>
+                <th class="px-4 py-2">Visitant</th>
+                <th class="px-4 py-2">Lliga</th>
+                <th class="px-4 py-2">Temporada</th>
+                <th class="px-4 py-2">Resultat</th>
+                <th class="px-4 py-2">Temps</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($partits as $partit)
+            <tr>
+                <td class="px-4 py-2">{{ $partit->data }}</td>
+                <td class="px-4 py-2">{{ $partit->estadi }}</td>
+                <td class="px-4 py-2">{{ $partit->equipLocal->nom }}</td>
+                <td class="px-4 py-2">{{ $partit->equipVisitant->nom }}</td>
+                <td class="px-4 py-2">{{ $partit->lliga->nom }}</td>
+                <td class="px-4 py-2">{{ $partit->lliga->temporada }}</td>
+                <td class="px-4 py-2">{{ $partit->resultat }}</td>
+                <td class="px-4 py-2">{{ $partit->temps }}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
 
-
+    @auth
+    <div class="mt-8 text-left">
+        <a href="{{ route('team', ['id' => $equip->id]) }}" class="btn btn-primary">Gestionar Equip</a>
+    </div>
+    <div class="mt-8 text-left">
+        <a href="{{ route('matches.show', ['id' => $equip->id]) }}" class="btn btn-primary">Gestionar Partits</a>
+    </div>
+    <div class="mt-8 text-right">
+        <a href="{{ route('teams.list') }}" class="btn btn-primary">Tornar a la llista d'equips</a>
+    </div>
+    @endauth
+</div>
+@endsection

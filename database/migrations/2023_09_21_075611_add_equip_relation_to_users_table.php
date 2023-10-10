@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->unsignedBigInteger('equip_id')->nullable();
             $table->foreign('equip_id')->references('id')->on('equips')->onDelete('cascade');
-            $table->string('role')->nullable(); // La columna 'role' puede ser nula para usuarios sin rol asignado.
+            $table->string('role')->nullable(); 
           
         });
     }
@@ -19,7 +19,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropForeign(['equip_id']); // si un equip s'elimina, s'eliminen els usuaris que formen part del equip
+            $table->dropForeign(['equip_id']); 
             $table->dropColumn('equip_id');
         });
     }

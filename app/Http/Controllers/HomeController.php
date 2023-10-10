@@ -12,6 +12,9 @@ class HomeController extends Controller
     public function __invoke(){
         return view('auth.login');
     }
+    public function register(){
+        return view('auth.register');
+    }
     public function index()
     {
        

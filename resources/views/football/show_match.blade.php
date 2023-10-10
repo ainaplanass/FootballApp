@@ -1,7 +1,9 @@
 @extends('layouts.plantilla')
 @section('title', 'Partits Actuals')
 @section('content')
-    <h1>Partits actuals de la lliga</h1>
+
+<div class="container mx-auto p-4">
+    <h1 class = "title">Partits actuals de la lliga</h1>
     <table>
         <thead>
             <tr>
@@ -26,6 +28,8 @@
             @endforeach
         </tbody>
     </table>
-<a href="{{ route('menu') }}" class="btn btn-primary">Tornar al menú principal</a>
-
+    <div class="mt-8 text-right">
+        <a href="{{ route('menu') }}" class="btn btn-primary">Tornar al menú principal</a>
+    </div>
+</div>
 @endsection

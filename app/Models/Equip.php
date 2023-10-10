@@ -11,6 +11,7 @@ class Equip extends Model
 
     protected $fillable = [
         'nom',
+        'logo_path'
     ];
 
     public function jugadors()

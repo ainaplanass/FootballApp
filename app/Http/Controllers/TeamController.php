@@ -9,6 +9,8 @@ use App\Models\Entrenador;
 use App\Models\Jugador;
 use App\Models\ClubsEsportiu;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+
 class TeamController extends Controller
 {
     public function currentUser()
@@ -59,11 +61,17 @@ class TeamController extends Controller
     }
     public function storeTeam(Request $request)
     {
-        $currentUser = $this->currentUser();
 
             $equip = new Equip();
             $equip->nom = $request->nom;
             $equip->clubs_esportius_id = $request->clubs_esportius_id;
+            if ($request->hasFile('logo')) {
+                $uploadedFile = $request->file('logo');
+                $filename = uniqid() . '_' . $uploadedFile->getClientOriginalName();
+                $path = $uploadedFile->storeAs('public\images\logo', $filename);
+                $equip->logo_path = 'storage/images/logo/' . $filename;            
+            }
+            
             $equip->save();
          
             return redirect()->route('teams.list')
@@ -74,20 +82,27 @@ class TeamController extends Controller
     public function destroyTeam(Request $request)
     {
         $currentUser = $this->currentUser();
-            $selectedTeamId = $request->input('selectedTeamId');
+        $selectedTeamId = $request->input('selectedTeamId');
+        
+        if ($selectedTeamId) {
+            $equip = Equip::find($selectedTeamId);
             
-            if ($selectedTeamId) {
-                $equip = Equip::find($selectedTeamId);
-                $equip->delete();
-                return redirect()->route('teams.list')
-                ->with('success', 'Equip eliminat correctament');
+            if ($equip->logo_path) {
+                $fileToDelete = public_path($equip->logo_path);
+                if (file_exists($fileToDelete)) {
+                    unlink($fileToDelete);
+                }
             }
-     
+            $equip->delete();
+            
+            return redirect()->route('teams.list')
+                ->with('success', 'Equip eliminat correctament');
+        }
     }
+    
     
     public function storePlayer(Request $request, $id)
     {
-        $equip = Equip::find($id);
         $jugador = new Jugador();
         $jugador->nom = $request->nom;
         $jugador->edat = $request->edat;
@@ -97,12 +112,13 @@ class TeamController extends Controller
 
         $jugador->save();
 
-        return redirect()->route('teams.show', ['id' => $equip->id])
+        return redirect()->back()
         ->with('success', 'Jugador creat correctament');
     }
    
-    public function updatePlayer(Request $request, Jugador $jugador)
+    public function updatePlayer(Request $request,  $id)
     {
+        $jugador = Jugador::find($id);
         $request->validate([
             'nom' => 'required|string|max:255',
             'edat' => 'required|integer',
@@ -116,16 +132,16 @@ class TeamController extends Controller
         $jugador->posicio = $request->posicio;
         $jugador->save();
 
-        return redirect()->route('teams.show', ['id' => $jugador->equip_id])
-            ->with('success', 'Jugador actuaitzat correctament');
+        return redirect()->back()
+           ->with('success', 'Jugador actualitzat correctament');
     }
     public function destroyPlayer($id)
     {
         $jugador = Jugador::findOrFail($id);
         $jugador->delete();
     
-        return redirect()->route('teams.show', ['id' => $jugador->equip_id])
-            ->with('success', 'Jugador eliminat correctament');
+        return redirect()->back()
+           ->with('success', 'Jugador eliminat correctament');
     }
     public function storeTrainer(Request $request, $id)
     {
@@ -136,16 +152,16 @@ class TeamController extends Controller
 
         $entrenador->save();
 
-        return redirect()->route('teams.show', ['id' => $equip->id])
-        ->with('success', 'Jugador creat correctament');
+        return redirect()->back()
+           ->with('success', 'Entrenador creat correctament');
     }
     public function destroyTrainer($id)
     {
         $entrenador = Entrenador::findOrFail($id);
         $entrenador->delete();
     
-        return redirect()->route('teams.show', ['id' => $entrenador->equip_id])
-            ->with('success', 'Jugador eliminat correctament');
+        return redirect()->back()
+           ->with('success', 'Entrenador eliminat correctament');
     }
  
 }
