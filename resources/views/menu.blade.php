@@ -16,11 +16,11 @@
         </form>
         @else
         <a href="{{ route('login') }}" class="btn btn-primary">Iniciar la sessió</a>
+        <br><br><br>
+        <a href="{{ route('register') }}" class="btn btn-primary">Crea un compte</a>
         @endauth
-    </div>    
-    <div class="text-right mt-4 ml-4 absolute top-20 right-10">  
-        <a href="{{ route('register') }}"class="btn btn-primary">Crea un compte</a>
-    </div>    
+    </div>
+    
     <br><br><br>
     <div class="container mx-auto px-8 mt-12 text-black text-center">
         <div class="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4">

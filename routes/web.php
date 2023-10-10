@@ -12,13 +12,13 @@ Auth::routes();
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/login', [HomeController::class, '__invoke'])->name('login');
 Route::get('/register',[HomeController::class, 'register'])->name('register');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::prefix('lfebs')->group(function () {
     
     Route::middleware('auth')->group(function () {
         
-        Route::get('menu', [HomeController::class, 'index'])->name('menu');
-        Route::get('/home', [HomeController::class, 'index'])->name('home');
+        Route::get('/menu', [HomeController::class, 'index'])->name('menu');
         
         Route::get('teamslist', [TeamController::class, 'teamsList'])->name('teams.list');
         Route::get('teams', [TeamController::class, 'teams'])->name('teams');
