@@ -5,7 +5,7 @@
 <div class="container-lg">
     <h1 class="title">{{ $equip->nom }}</h1>
     <h2 class = "subtitle">Club Esportiu: {{ $equip->clubsEsportiu->nom }}</h2>   
-    <h2>Jugadors:</h2>
+    <h2 class = "subsubtitle">Jugadors:</h2>
     <table class="table-auto w-full">
         <thead>
             <tr>
@@ -29,14 +29,14 @@
         </tbody>
     </table>
 
-    <h2>Entrenador/s:</h2>
+    <h2 class = "subsubtitle">Entrenador/s:</h2>
     <ul>
         @foreach ($equip->entrenador as $entrenador)
             <li>{{ $entrenador->nom }}</li>
         @endforeach
     </ul>
-
-    <h2>Partits:</h2>
+<br>
+    <h2 class = "subsubtitle">Partits:</h2>
     <table class="table-auto w-full">
         <thead>
             <tr>
@@ -73,9 +73,9 @@
     <div class="mt-8 text-left">
         <a href="{{ route('matches.show', ['id' => $equip->id]) }}" class="btn btn-primary">Gestionar Partits</a>
     </div>
+    @endauth
     <div class="mt-8 text-right">
         <a href="{{ route('teams.list') }}" class="btn btn-primary">Tornar a la llista d'equips</a>
     </div>
-    @endauth
 </div>
 @endsection

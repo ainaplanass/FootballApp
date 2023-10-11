@@ -69,11 +69,27 @@
                 <div class="article-content">
                     <h3 class="article-title">Sabadell fora de joc</h3>
                     <p class="article-excerpt">En una sorprenent gira internacional, l'equip de l'Institut de Montserrat va conquerir una victòria contundent contra un equip rival de Sabadell, destacant el seu talent més enllà de les fronteres.</p>
-                    <a href="#" class="article-link">Més informació &rarr;</a>
+                    <button type="button" class="article-link" data-bs-toggle="modal" data-bs-target="#noticiaModal1">Més informació &rarr;</button>
+                </div>
+            </div>           
+        </div>
+    </div>
+    <div class="modal fade" id="noticiaModal1" tabindex="-1" aria-labelledby="noticiaModalLabel1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="noticiaModalLabel1">Título del Modal</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    Contenido del modal...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
-    </div>
+    </div>    
 </body>
 </html>
 @endsection

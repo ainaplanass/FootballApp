@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@hasSection('title')@yield('title')@else Lliga de Fútbol Escolar Barcelona Sants @endif</title>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
     <style>
 
@@ -128,6 +129,12 @@
             color: #014b34; 
             margin-bottom: 1rem; 
          }
+        .subsubtitle {
+            font-size: 1.075rem; 
+            font-weight: bold;
+            color: #134314; 
+            margin-bottom: 1rem; 
+         }
          table {
             margin-left: 5px; 
             margin-right: 5px; 
@@ -152,9 +159,27 @@
             border-radius: 5px;
             text-align: center;
         }
+        .modal {
+            display: center;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-dialog {
+            margin: 0;
+        }
+
+        .modal-content {
+            border-radius: 0; 
+        }
+
     </style>
     </head>
     <body class="bg-gray-100 font-sans">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     @if (isset($useLongContainer) && $useLongContainer)
         @includeIf('includes.containerlong')

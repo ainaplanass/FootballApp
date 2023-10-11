@@ -12,7 +12,7 @@ class MatchController extends Controller
   
     public function matches()
     {
-        $partits = Partit::all();
+        $partits = Partit::orderBy('data', 'asc')->get();
         return view('football.show_match', compact('partits'));
     }
     public function teamMatches($id)
@@ -89,8 +89,8 @@ class MatchController extends Controller
    }
    public function destroyMatch($id)
    {
-       $match = Partit::findOrFail($id);
-       $match->delete();
+       $partit = Partit::findOrFail($id);
+       $partit->delete();
    
        return redirect()->back()
            ->with('success', 'Partit eliminat correctament');

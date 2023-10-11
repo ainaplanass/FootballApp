@@ -10,24 +10,18 @@ class UserController extends Controller
 {
     public function usersList()
     {
-        $users = User::all();
-        $roles = Role::all();
-        return view('users', compact('users', 'roles'));
+        $usuaris = User::all();
+        $rols = Role::all();
+        return view('users', compact('usuaris', 'rols'));
     }
 
     public function assignRoles(Request $request, $userId)
     {
-            //  $currentUser = auth()->user();
     
-            // if ($currentUser->isAdmin()) {
-                $user = User::findOrFail($userId);
-                $user->syncRoles($request->input('roles'));
+                $usuari = User::findOrFail($userId);
+                $usuari->syncRoles($request->input('roles'));
     
                 return redirect()->route('users.list')->with('success', 'Rol assignat correctament.');
-            // }
-   
-        
-        // return redirect()->route('users.list');
     }
 
   
