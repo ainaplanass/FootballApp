@@ -2,7 +2,7 @@
 @section('title', 'Gestionar Jugadors')
 @section('content')
 
-<div class="container-lg">
+<div class="container mx-auto p-4">
     <h1 class= "title">Gestiona l'equip {{ $equip->nom }}</h1>
     <br>
     <h2 class= "subtitle">Jugadors</h2>

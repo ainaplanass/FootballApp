@@ -66,14 +66,14 @@
         </tbody>
     </table>
 
-    @auth
+
     <div class="mt-8 text-left">
         <a href="{{ route('team', ['id' => $equip->id]) }}" class="btn btn-primary">Gestionar Equip</a>
     </div>
     <div class="mt-8 text-left">
         <a href="{{ route('matches.show', ['id' => $equip->id]) }}" class="btn btn-primary">Gestionar Partits</a>
     </div>
-    @endauth
+ 
     <div class="mt-8 text-right">
         <a href="{{ route('teams.list') }}" class="btn btn-primary">Tornar a la llista d'equips</a>
     </div>

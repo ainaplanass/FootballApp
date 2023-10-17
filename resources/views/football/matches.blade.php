@@ -4,6 +4,7 @@
 @php
     $useLongContainer = true;
 @endphp
+
 <div class="container-lg  mx-auto p-4">
     <h1 class="title">Aquí pots gestionar els partits de {{ $equip->nom }}</h1>    
     <h2 class="subtitle">Partits Actuals</h2>
