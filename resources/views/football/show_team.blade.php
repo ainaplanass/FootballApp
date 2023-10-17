@@ -41,26 +41,26 @@
         <thead>
             <tr>
                 <th class="px-4 py-2">Data</th>
+                <th class="px-4 py-2">Hora</th>
                 <th class="px-4 py-2">Estadi</th>
                 <th class="px-4 py-2">Local</th>
                 <th class="px-4 py-2">Visitant</th>
                 <th class="px-4 py-2">Lliga</th>
                 <th class="px-4 py-2">Temporada</th>
                 <th class="px-4 py-2">Resultat</th>
-                <th class="px-4 py-2">Temps</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($partits as $partit)
             <tr>
                 <td class="px-4 py-2">{{ $partit->data }}</td>
+                <td class="px-4 py-2">{{ $partit->temps }}</td>
                 <td class="px-4 py-2">{{ $partit->estadi }}</td>
                 <td class="px-4 py-2">{{ $partit->equipLocal->nom }}</td>
                 <td class="px-4 py-2">{{ $partit->equipVisitant->nom }}</td>
                 <td class="px-4 py-2">{{ $partit->lliga->nom }}</td>
                 <td class="px-4 py-2">{{ $partit->lliga->temporada }}</td>
                 <td class="px-4 py-2">{{ $partit->resultat }}</td>
-                <td class="px-4 py-2">{{ $partit->temps }}</td>
             </tr>
             @endforeach
         </tbody>

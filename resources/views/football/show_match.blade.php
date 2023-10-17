@@ -8,22 +8,22 @@
         <thead>
             <tr>
                 <th>Data</th>
+                <th>Hora</th>
                 <th>Estadi</th>
                 <th>Equip Local</th>
                 <th>Equip Visitant</th>
                 <th>Resultat</th>
-                <th>Temps</th>
             </tr>
         </thead>
         <tbody>
             @foreach($partits as $partit)
                 <tr>
                     <td>{{ $partit->data }}</td>
+                    <td>{{ $partit->temps }}</td>
                     <td>{{ $partit->estadi }}</td>
                     <td>{{ $partit->equipLocal->nom }}</td>
                     <td>{{ $partit->equipVisitant->nom }}</td>
                     <td>{{ $partit->resultat }}</td>
-                    <td>{{ $partit->temps }}</td>
                 </tr>
             @endforeach
         </tbody>

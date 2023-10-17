@@ -15,7 +15,7 @@
                 <th>Estadi</th>
                 <th>Equip Local</th>
                 <th>Equip Visitant</th>
-                <th>Temps</th>
+                <th>Hora</th>
                 <th>Resultat</th>
                 <th>Lliga</th>
                 <th>Accions</th>
@@ -106,7 +106,7 @@
                 <input type="date" name="data" id="data" class="form-control" required>
             </div>           
             <div class="form-group mt-4">
-                <label for="data">Temps:</label>
+                <label for="data">Hora:</label>
                 <input type="time" name="temps" id="temps" class="form-control" >
             </div>
             <div class="form-group mt-4">

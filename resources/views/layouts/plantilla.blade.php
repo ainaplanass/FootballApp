@@ -27,7 +27,7 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .container-lg {
-            max-width: 1500px;
+            max-width: 1700px;
             margin: 0 auto;
             padding: 20px;
             background-color: rgba(239, 243, 240, 0.9);
@@ -35,7 +35,7 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-            .article {
+        .article {
             margin-bottom: 20px;
             border-radius: 5px;
             overflow: hidden;
@@ -153,7 +153,7 @@
         }
     </style>
     </head>
-    <body class="bg-gray-100 font-sans">
+    <body class="bg-black-100 font-sans">
 
     @if (isset($useLongContainer) && $useLongContainer)
         @includeIf('includes.containerlong')
